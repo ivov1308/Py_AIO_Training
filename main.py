@@ -1,15 +1,17 @@
-import math
-import pprint
-from typing import Tuple
+import json
+import requests
+import config
+from pprint import pprint
 
-print("Hello world!")
-
-
-def foo(x: int) -> Tuple[int, float]:
-    return x, math.pi
+api = config.API_URL
+token = config.BOT_TOKEN
 
 
-pprint.pprint('Hello')
+def write_update():
+    with open('update_example.json', 'w') as file:
+        update = requests.get(f'{api}{token}/getUpdates').json()
+        json.dump(update, file, ensure_ascii=False, indent=4)
 
 
-print(foo(4))
+update = requests.get(f'{api}{token}/getUpdates').json()
+pprint(update, indent=2)
