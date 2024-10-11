@@ -11,11 +11,22 @@ dp = Dispatcher()
 
 ATTEMPTS = 5
 
-user = {'in_game': False,
-        'secret_number': 0,
-        'attempts': 0,
-        'total_games': 0,
-        'wins': 0}
+users: dict = {}
+
+
+def get_user(message: Message):
+    if message.from_user:
+        user = message.from_user
+    if user.id not in users:
+        print('\n', 'New user:', user.id, '\n')
+        users[user.id] = {
+            'in_game': False,
+            'secret_number': 0,
+            'attempts': 0,
+            'total_games': 0,
+            'wins': 0
+            }
+    return users[user.id]
 
 
 def get_random_number() -> int:
@@ -25,6 +36,7 @@ def get_random_number() -> int:
 # /start
 @dp.message(CommandStart())
 async def process_start_command(message: Message):
+    get_user(message)
     await message.answer(
         'Привет!\nДавай сыграем в игру "Угадай число"?\n\n'
         'Чтобы получить правила игры и список доступных '
@@ -35,6 +47,7 @@ async def process_start_command(message: Message):
 # /help
 @dp.message(Command(commands='help'))
 async def process_help_command(message: Message):
+    get_user(message)
     await message.answer(
         f'Правила игры:\n\nЯ загадываю число  от 1 до 100, '
         f'а вам нужно его угадать.\nУ вас есть {ATTEMPTS} '
@@ -47,6 +60,7 @@ async def process_help_command(message: Message):
 # /stat
 @dp.message(Command(commands='stat'))
 async def process_stat_command(message: Message):
+    user = get_user(message)
     await message.answer(
         f'Всего игр сыграно: {user["total_games"]}\n'
         f'Игр выиграно: {user["wins"]}'
@@ -56,6 +70,7 @@ async def process_stat_command(message: Message):
 #   /cancel
 @dp.message(Command(commands='cancel'))
 async def process_cancel_command(message: Message):
+    user = get_user(message)
     if user['in_game']:
         user['in_game'] = False
         await message.answer(
@@ -72,6 +87,7 @@ async def process_cancel_command(message: Message):
 @dp.message(F.text.lower().in_(['да', 'давай', 'сыграем',
                                 'игра', 'играть']))
 async def process_positive_answer(message: Message):
+    user = get_user(message)
     if not user['in_game']:
         user['in_game'] = True
         user['secret_number'] = get_random_number()
@@ -91,6 +107,7 @@ async def process_positive_answer(message: Message):
 # no
 @dp.message(F.text.lower().in_(['нет', 'не', 'не хочу', 'не буду']))
 async def process_negative_answer(message: Message):
+    user = get_user(message)
     if not user['in_game']:
         await message.answer(
             'Жаль :(\n\nЕсли захотите поиграть - '
@@ -107,6 +124,7 @@ async def process_negative_answer(message: Message):
 @dp.message(lambda x: x.text and x.text.isdigit()
             and 1 <= int(x.text) <= 100)
 async def process_number_answer(message: Message):
+    user = get_user(message)
     if user['in_game'] and message.text:
         if int(message.text) == user['secret_number']:
             user['in_game'] = False
@@ -139,6 +157,7 @@ async def process_number_answer(message: Message):
 #  any
 @dp.message()
 async def process_other_answers(message: Message):
+    user = get_user(message)
     if user['in_game']:
         await message.answer(
             'Мы же с вами играем. '
