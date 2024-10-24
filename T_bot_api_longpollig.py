@@ -1,9 +1,9 @@
 import requests
 import time
-import config
+import my_config
 
-API_URL = config.API_URL
-BOT_TOKEN = config.BOT_TOKEN
+API_URL = my_config.API_URL
+BOT_TOKEN = my_config.BOT_TOKEN
 offset = -2
 timeout = 60
 updates: dict

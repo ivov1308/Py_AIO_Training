@@ -1,10 +1,10 @@
 import requests
 import time
-import config
+import my_config
 
-API_URL = config.API_URL
-API_CATS_URL = config.API_CATS_URL
-BOT_TOKEN = config.BOT_TOKEN
+API_URL = my_config.API_URL
+API_CATS_URL = my_config.API_CATS_URL
+BOT_TOKEN = my_config.BOT_TOKEN
 ERROR_TEXT = 'Здесь должна была быть картинка с котиком :('
 
 offset = -2

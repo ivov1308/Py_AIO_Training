@@ -1,10 +1,10 @@
 import json
 import requests
-import config
+import my_config
 from pprint import pprint
 
-api = config.API_URL
-token = config.BOT_TOKEN
+api = my_config.API_URL
+token = my_config.BOT_TOKEN
 
 
 def write_update():
