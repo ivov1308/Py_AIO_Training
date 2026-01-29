@@ -1,0 +1,22 @@
+{
+    "photo": {
+        "AQADWAtrG0HowEt4": "AgACAgIAAxkBAAMdaXexo2FgpKi8Kcf-dXonswgAAV0zAAJYC2sbQejASzlG3IGrR4mpAQADAgADcwADOAQ",
+        "AQADBBRrG4Q9yUt4": "AgACAgIAAxkBAAMtaXkJJaJgyBNfNtBaQjaSBOBKGToAAgQUaxuEPclLKhwx09fVciABAAMCAANzAAM4BA"
+    },
+    "audio": {
+        "The Son of Flynn.mp3": "CQACAgIAAxkBAAMvaXkJ3X_u5VbQpgHF7Dr3tkQuf50AAqCNAAKEPclLiFQVRlPLjaw4BA",
+        "Deadmau5 - Clockwork (Radio DFM Mix).mp3": "CQACAgIAAxkBAAMxaXkKHOpRGrH387HYu3yyOKXsmKsAAqSNAAKEPclLpAfwSAnch_M4BA"
+    },
+    "document": {
+        "3_kurs_OLR-23-03_s_14_01_po_03_03.pdf": "BQACAgIAAxkBAAMgaXeyZVen9JT4_6rPe-PgH1bkNtEAAjCGAAJB6MBLAu5vlkdlbI44BA",
+        "3_kurs_OLR-23-03_s_01_06_po_27_06.pdf": "BQACAgIAAxkBAAM1aXkKZEyCT-urHTBXIYtkflZUwxsAAqmNAAKEPclLp7x3rP5aYk04BA"
+    },
+    "video": {
+        "grok-video-8bfe68a7-adfc-4e40-89c9-8bd6e53ebe6e.mp4": "BAACAgIAAxkBAAM5aXkK-ogAATX9zECI4l__XhPkeYKOAAItkAAC48_JS9ATX8ztY-T6OAQ",
+        "null": "BAACAgIAAxkBAAM7aXkLBbB81u02FOUXaW-zmH_AL-0AAmyTAAM7uEvVStMDcp1vHTgE"
+    },
+    "voice": {
+        "AgADu40AAoQ9yUs": "AwACAgIAAxkBAAM9aXkLNDsVV3WmnKrRRizJwkBRs3YAAruNAAKEPclLLo0ZYoDkzZM4BA",
+        "AgADvI0AAoQ9yUs": "AwACAgIAAxkBAAM_aXkLPV_o1B0SryZAy9xVOBxZdSYAAryNAAKEPclL9lsLvSWBcrQ4BA"
+    }
+}
