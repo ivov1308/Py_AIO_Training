@@ -5,7 +5,7 @@ from aiogram.fsm.state import default_state, State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.types import (CallbackQuery, InlineKeyboardButton,
                            InlineKeyboardMarkup, Message, PhotoSize)
-from env_names import bot_token
+# from env_names import bot_token
 from pprint import pprint
 
 # Инициализируем хранилище (создаем экземпляр класса MemoryStorage)
@@ -14,7 +14,7 @@ storage = MemoryStorage()
 # Создаем "базу данных" пользователей
 user_dict: dict[int, dict[str, str | int | bool]] = {}
 
-bot = Bot(bot_token)
+bot = Bot(BOT_TOKEN)
 dp = Dispatcher(storage=storage)
 
 
