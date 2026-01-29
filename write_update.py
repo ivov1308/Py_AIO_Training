@@ -9,7 +9,7 @@ token = my_config.BOT_TOKEN
 
 def write_update():
     with open('update_example.json', 'w') as file:
-        update = requests.get(f'{api}{token}/getUpdates').json()
+        update = requests.get(f'{api}{token}/getUpdates')
         json.dump(update, file, ensure_ascii=False, indent=4)
 
 

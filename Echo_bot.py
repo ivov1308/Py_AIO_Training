@@ -30,6 +30,7 @@ async def process_help_command(message: Message):
 async def send_echo(message: Message):
     try:
         print(message.model_dump_json(indent=4, exclude_none=True))
+        print(message.content_type)
         await message.send_copy(chat_id=message.chat.id)
     except TypeError:
         await message.reply(
