@@ -2,14 +2,19 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command, CommandStart, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import default_state, State, StatesGroup
-from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.fsm.storage.redis import RedisStorage
+from redis.asyncio.client import Redis
 from aiogram.types import (CallbackQuery, InlineKeyboardButton,
                            InlineKeyboardMarkup, Message, PhotoSize)
 from env_names import bot_token
 from pprint import pprint
 
-# Инициализируем хранилище (создаем экземпляр класса MemoryStorage)
-storage = MemoryStorage()
+
+# Инициализируем Redis
+redis = Redis(host='localhost')
+
+# Инициализируем хранилище
+storage = RedisStorage(redis=redis)
 
 # Создаем "базу данных" пользователей
 user_dict: dict[int, dict[str, str | int | bool]] = {}
